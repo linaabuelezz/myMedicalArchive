@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { Dialog, Button, Flex, TextField, Text } from "@radix-ui/themes";
 import { OpeningDialogueContext } from "../../hooks/openingDialogue";
 import { TempDataContext } from "../../hooks/TempDataContext"
@@ -8,6 +8,7 @@ const AddingFileDialogue = () => {
     OpeningDialogueContext
   );
   const { tempFileData, setTempFileData } = useContext(TempDataContext);
+  const [errors, setErrors] = useState({});
 
   const handleDocSubmit = (e) => {
     e.preventDefault();
@@ -16,12 +17,21 @@ const AddingFileDialogue = () => {
       newDocDescription: e.target.docDescription.value,
       newDocDocument: e.target.selectedDoc.value,
     };
+
+    const newErrors = {};
+    if (!newDoc.newDocName) newErrors.newDocName = "Document name is required.";
+    if (!newDoc.newDocDescription) newErrors.newDocDescription = "Document description is required.";
+    if (!newDoc.newDocDocument) newErrors.newDocDocument = "File is required.";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }   
     setTempFileData(prev => [...prev,newDoc]);
     console.log(newDoc);
     
     closeDialogue();
   };
-  console.log(tempFileData);
 
 
   return (

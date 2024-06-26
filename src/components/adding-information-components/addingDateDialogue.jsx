@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { Dialog, Button, Flex, TextField, Text } from "@radix-ui/themes";
 import { OpeningDialogueContext } from "../../hooks/openingDialogue";
 import { TempDataContext } from "../../hooks/TempDataContext";
@@ -8,6 +8,7 @@ const AddingDateDialogue = () => {
     OpeningDialogueContext
   );
   const { tempDateData, setTempDateData } = useContext(TempDataContext);
+  const [errors, setErrors] = useState({});
   const handleDateSubmit = (e) => {
     e.preventDefault();
     const newEvent = {
@@ -15,14 +16,19 @@ const AddingDateDialogue = () => {
       newEventDescription: e.target.eventDescription.value,
       newEventDate: e.target.eventDate.value,
     };
-    console.log(e.target.eventName.value);
-    if (e.target.eventName.value=== "") {
-      return
-    }
-    setTempDateData(prev => [...prev,newEvent]);
-    console.log(newEvent);
-    console.log(tempDateData);
-    closeDialogue();
+    const newErrors = {};
+    if (!newEvent.newEventName) newErrors.newEventName = "Event name is required.";
+    if (!newEvent.newEventDescription) newErrors.newEventDescription = "Event description is required.";
+    if (!newEvent.newEventDate) newErrors.newEventDate = "Event date is required.";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }   
+      setTempDateData(prev => [...prev,newEvent]);
+      console.log(newEvent);
+      console.log(tempDateData);
+      closeDialogue();
   };
   return (
     <Dialog.Root open={modalType === "Add-date" && isDialogueOpen}>
