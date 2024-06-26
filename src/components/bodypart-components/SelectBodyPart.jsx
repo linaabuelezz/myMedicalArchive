@@ -3,12 +3,11 @@ import TempDataContext from "../../hooks/TempDataContext";
 
 const bodyPartOptions = [{name: "Head", id: "1"}, {name:"Neck", id: "2"}, {name:"Shoulders", id: "3"}, {name:"Arms", id: "4"}, {name:"Hands", id: "5"}, {name:"Torso", id: "6"}, {name:"Hips", id: "7"}, {name:"Legs", id: "8"}, {name:"Feet", id: "9"}];
 const SelectBodyPart = () => {
-  const { setChosenBodyPart, chosenBodyPart } = useContext(TempDataContext);
+  const { setChosenBodyPart } = useContext(TempDataContext);
 
   const handlePartSelect = (e) => {
     setChosenBodyPart(e.target.value);
   };
-  console.log(chosenBodyPart);
 
 
 

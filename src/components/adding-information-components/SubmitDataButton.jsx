@@ -4,7 +4,7 @@ import TempDataContext from "../../hooks/TempDataContext";
 
 const SubmitDataButton = () => {
   const { bodyParts, setBodyParts } = useContext(BodyPartsContext);
-  const { tempDateData, tempFileData, chosenBodyPart } =
+  const { tempDateData, setTempDateData, setTempFileData, tempFileData, chosenBodyPart } =
     useContext(TempDataContext);
 
   const handleSave = () => {
@@ -17,12 +17,12 @@ const SubmitDataButton = () => {
         if (part.id === chosenBodyPart) {
           return {
             ...part,
-            dates: tempDateData.size
-              ? [...part.dates, tempDateData]
+            dates: tempDateData!== null
+              ? [...part.dates, ...tempDateData]
               : part.dates,
             files:
-              tempFileData.size 
-                ? [...part.files, tempFileData]
+              tempFileData!== null
+                ? [...part.files, ...tempFileData]
                 : part.files,
           };
         } else {
@@ -30,6 +30,8 @@ const SubmitDataButton = () => {
         }
       })
     );
+    setTempDateData([]);
+    setTempFileData([]);
   };
 
   console.log(bodyParts);

@@ -16,7 +16,7 @@ const AddingFileDialogue = () => {
       newDocDescription: e.target.docDescription.value,
       newDocDocument: e.target.selectedDoc.value,
     };
-    setTempFileData(newDoc);
+    setTempFileData(prev => [...prev,newDoc]);
     console.log(newDoc);
     
     closeDialogue();

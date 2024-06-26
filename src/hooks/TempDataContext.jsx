@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 
 export const TempDataContext = createContext("");
 export const TempDataProvider = ({children}) => {
-    const [tempDateData, setTempDateData] = useState({});
-    const [tempFileData, setTempFileData] = useState({});
+    const [tempDateData, setTempDateData] = useState([]);
+    const [tempFileData, setTempFileData] = useState([]);
     const [chosenBodyPart, setChosenBodyPart] = useState("1");
 
     return (

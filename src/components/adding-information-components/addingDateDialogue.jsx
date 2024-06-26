@@ -19,7 +19,7 @@ const AddingDateDialogue = () => {
     if (e.target.eventName.value=== "") {
       return
     }
-    setTempDateData(newEvent);
+    setTempDateData(prev => [...prev,newEvent]);
     console.log(newEvent);
     console.log(tempDateData);
     closeDialogue();
