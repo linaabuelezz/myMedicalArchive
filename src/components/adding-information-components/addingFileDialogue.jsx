@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Dialog, Button, Flex, TextField, Text } from "@radix-ui/themes";
 import { OpeningDialogueContext } from "../../hooks/openingDialogue";
 import { TempDataContext } from "../../hooks/TempDataContext"
+import { v4 as uuidv4 } from 'uuid';
 
 const AddingFileDialogue = () => {
   const { isDialogueOpen, closeDialogue, modalType } = useContext(
@@ -16,6 +17,7 @@ const AddingFileDialogue = () => {
       newDocName: e.target.docName.value,
       newDocDescription: e.target.docDescription.value,
       newDocDocument: e.target.selectedDoc.value,
+      newDocId: uuidv4()
     };
 
     const newErrors = {};
@@ -26,7 +28,8 @@ const AddingFileDialogue = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
-    }   
+    }
+    
     setTempFileData(prev => [...prev,newDoc]);
     console.log(newDoc);
     
@@ -52,6 +55,11 @@ const AddingFileDialogue = () => {
                 placeholder="Enter recognizable document name."
                 name="docName"
               />
+              {errors.newDocName && (
+                <Text color="red" size="1">
+                  {errors.newDocName}
+                </Text>
+              )}
             </label>
             <label>
               <Text as="div" size="4" mb="1" weight="bold">
@@ -61,6 +69,11 @@ const AddingFileDialogue = () => {
                 placeholder="X-ray, diagnosed with..."
                 name="docDescription"
               />
+               {errors.newDocDescription && (
+                <Text color="red" size="1">
+                  {errors.newDocDescription}
+                </Text>
+              )}
             </label>
             <label>
               <Text as="div" size="2" mb="1" weight="bold">
@@ -71,6 +84,11 @@ const AddingFileDialogue = () => {
                 name="selectedDoc"
                 className=""
               ></input>
+               {errors.newDocDocument && (
+                <Text color="red" size="1">
+                  {errors.newDocDocument}
+                </Text>
+              )}
             </label>
           </Flex>
 

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import TempDataContext from "../../hooks/TempDataContext";
+import { HomePageContext } from "../../hooks/HomePageContext";
 
 const bodyPartOptions = [
   { name: "Head", id: "1" },
@@ -12,8 +12,8 @@ const bodyPartOptions = [
   { name: "Legs", id: "8" },
   { name: "Feet", id: "9" },
 ];
-const SelectBodyPart = () => {
-  const { setChosenBodyPart } = useContext(TempDataContext);
+const HomeSelectBodyPart = () => {
+  const { setChosenBodyPart } = useContext(HomePageContext);
 
   const handlePartSelect = (e) => {
     setChosenBodyPart(e.target.value);
@@ -43,4 +43,4 @@ const SelectBodyPart = () => {
   );
 };
 
-export default SelectBodyPart;
+export default HomeSelectBodyPart;

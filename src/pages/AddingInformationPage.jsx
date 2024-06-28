@@ -15,11 +15,11 @@ const AddingInformationPage = () => {
       <AddingFileDialogue />
       <AddingDateButton />
       <AddingDateDialogue />
-      <SubmitDataButton />
       <div className="flex m-2">
-      <DatesAddedBox />
       <FilesAddedBox />
+      <DatesAddedBox />
       </div>
+      <SubmitDataButton />
     </>
   );
 };

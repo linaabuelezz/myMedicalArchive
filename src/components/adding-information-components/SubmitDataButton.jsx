@@ -12,7 +12,7 @@ const SubmitDataButton = () => {
     console.log(tempDateData);
     console.log(chosenBodyPart);
     console.log(!!tempDateData);
-    setBodyParts(
+    const updatedBodyParts =
       bodyParts.map((part) => {
         if (part.id === chosenBodyPart) {
           return {
@@ -29,7 +29,8 @@ const SubmitDataButton = () => {
           return part;
         }
       })
-    );
+    setBodyParts(updatedBodyParts);
+    localStorage.setItem('bodyParts', JSON.stringify(updatedBodyParts));
     setTempDateData([]);
     setTempFileData([]);
   };

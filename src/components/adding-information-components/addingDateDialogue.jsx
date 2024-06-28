@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Dialog, Button, Flex, TextField, Text } from "@radix-ui/themes";
 import { OpeningDialogueContext } from "../../hooks/openingDialogue";
 import { TempDataContext } from "../../hooks/TempDataContext";
+import { v4 as uuidv4 } from 'uuid';
 
 const AddingDateDialogue = () => {
   const { isDialogueOpen, closeDialogue, modalType } = useContext(
@@ -15,6 +16,7 @@ const AddingDateDialogue = () => {
       newEventName: e.target.eventName.value,
       newEventDescription: e.target.eventDescription.value,
       newEventDate: e.target.eventDate.value,
+      newEventId: uuidv4()
     };
     const newErrors = {};
     if (!newEvent.newEventName) newErrors.newEventName = "Event name is required.";
@@ -47,6 +49,11 @@ const AddingDateDialogue = () => {
                 placeholder="Enter recognizable document name."
                 name="eventName"
               />
+              {errors.newEventName && (
+                <Text color="red" size="1">
+                  {errors.newEventName}
+                </Text>
+              )}
             </label>
             <label>
               <Text as="div" size="4" mb="1" weight="bold">
@@ -56,6 +63,11 @@ const AddingDateDialogue = () => {
                 placeholder="X-ray, diagnosed with..."
                 name="eventDescription"
               />
+              {errors.newEventDescription && (
+                <Text color="red" size="1">
+                  {errors.newEventDescription}
+                </Text>
+              )}
             </label>
             <label>
               <Text as="div" size="2" mb="1" weight="bold">
@@ -66,6 +78,11 @@ const AddingDateDialogue = () => {
                 name="eventDate"
                 className="date-input"
               ></input>
+              {errors.newEventDate && (
+                <Text color="red" size="1">
+                  {errors.newEventDate}
+                </Text>
+              )}
             </label>
           </Flex>
 

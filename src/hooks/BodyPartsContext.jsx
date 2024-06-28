@@ -1,7 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const BodyPartsContext = createContext();
+export const BodyPartsContext = createContext();
 
 export const BodyPartsProvider = ({ children }) => {
   const [bodyParts, setBodyParts] = useState([
@@ -15,6 +15,15 @@ export const BodyPartsProvider = ({ children }) => {
     { partName: "Legs", id: "8", files: [], dates: [] },
     { partName: "Feet", id: "9", files: [], dates: [] },
   ]);
+
+  useEffect(() => {
+    const savedBodyParts = localStorage.getItem('bodyParts');
+    if (savedBodyParts) {
+      setBodyParts(JSON.parse(savedBodyParts));
+    }
+  }, []);
+  console.log(bodyParts);
+
 
   return (
     <BodyPartsContext.Provider value={{ bodyParts, setBodyParts }}>
