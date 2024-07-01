@@ -3,12 +3,13 @@ import { Dialog, Button, Flex, TextField, Text } from "@radix-ui/themes";
 import { OpeningDialogueContext } from "../../hooks/openingDialogue";
 import { TempDataContext } from "../../hooks/TempDataContext"
 import { v4 as uuidv4 } from 'uuid';
+// import UploadWidget from "../UploadWidget";
 
 const AddingFileDialogue = () => {
   const { isDialogueOpen, closeDialogue, modalType } = useContext(
     OpeningDialogueContext
   );
-  const { tempFileData, setTempFileData } = useContext(TempDataContext);
+  const { setTempFileData } = useContext(TempDataContext);
   const [errors, setErrors] = useState({});
 
   const handleDocSubmit = (e) => {
@@ -16,7 +17,7 @@ const AddingFileDialogue = () => {
     const newDoc = {
       newDocName: e.target.docName.value,
       newDocDescription: e.target.docDescription.value,
-      newDocDocument: e.target.selectedDoc.value,
+      // newDocDocument: e.target.selectedDoc.value,
       newDocId: uuidv4()
     };
 
@@ -28,7 +29,8 @@ const AddingFileDialogue = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
-    }
+    } 
+    
     
     setTempFileData(prev => [...prev,newDoc]);
     console.log(newDoc);
@@ -79,6 +81,8 @@ const AddingFileDialogue = () => {
               <Text as="div" size="2" mb="1" weight="bold">
                 Select a file:
               </Text>
+              {/* <UploadWidget /> */}
+              
               <input
                 type="file"
                 name="selectedDoc"

@@ -8,7 +8,7 @@ const AddingFileButton = () => {
         <div className="flex ml-4">
         <button
           onClick={() => openDialogue("Add-file")}
-          className=" mb-2 border-2 border-black hover:scale-110 font-bold rounded-md p-1"
+          className=" mb-2  hover:scale-110 font-medium rounded-md p-1.5 bg-blue-600 text-white"
         >
           Add File.
         </button>

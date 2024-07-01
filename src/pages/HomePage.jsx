@@ -7,7 +7,6 @@ const HomePage = () => {
   return (
     <>
       <HomePageProvider>
-        <h2 className="font-bold mx-auto ml-4">Home Page</h2>
         <HomeSelectBodyPart />
         <div className="flex m-2">
           <FilesDisplay />

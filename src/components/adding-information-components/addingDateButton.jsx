@@ -4,7 +4,7 @@ import { OpeningDialogueContext } from "../../hooks/openingDialogue";
 const AddingDateButton = () => {
     const { openDialogue } = useContext(OpeningDialogueContext);
     return (
-        <button className="border-2 border-black hover:scale-110 font-bold ml-4 rounded-md p-1" onClick={() => openDialogue("Add-date")}>
+        <button className="text-white hover:scale-110 font-medium bg-blue-600 ml-4 rounded-md p-1.5" onClick={() => openDialogue("Add-date")}>
             Add relevant date.
         </button>
     )

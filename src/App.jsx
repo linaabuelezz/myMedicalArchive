@@ -10,6 +10,9 @@ import AboutPage from "./pages/AboutPage";
 import { HomePageProvider } from "./hooks/HomePageContext";
 import EventDetails from "./components/homepage-components/EventDetails";
 import FileDetails from "./components/homepage-components/FileDetails";
+// import dotenv from 'dotenv';
+// dotenv.config();
+
 
 function App() {
   return (

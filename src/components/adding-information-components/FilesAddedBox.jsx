@@ -8,8 +8,8 @@ const FilesAddedBox = () => {
       <h3 className="font-bold ml-1">Added Files:</h3>
       {tempFileData.map((file, index) => (
         <div key={index}>
-          <p>
-            {file.newDocName} - {file.newDocDescription}
+          <p className="ml-2">
+            {file.display_name} 
           </p>
         </div>
       ))}
