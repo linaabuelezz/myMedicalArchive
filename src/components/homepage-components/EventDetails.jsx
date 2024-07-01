@@ -24,9 +24,12 @@ const EventDetails = () => {
     
       return (
         <div>
-          <h1>{event.newEventName}</h1>
-          <p>{event.newEventDescription}</p>
-          <p>{event.newEventDate}</p>
+          <h1 className="font-bold text-center mt-4 text-3xl underline">{event.newEventName}</h1>
+          <div className="border-4 border-black mt-10 w-80 mx-auto rounded-sm">
+          <p className="bg-slate-300"><strong>Description:  </strong>{event.newEventDescription}</p>
+          <div className="border-2 border-black"></div>
+          <p className="bg-slate-300"><strong>Date:  </strong>{event.newEventDate}</p>
+          </div>
         </div>
       );
     };

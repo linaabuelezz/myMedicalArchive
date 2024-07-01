@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState, useContext } from "react";
+import { useEffect, useRef, useContext } from "react";
 import TempDataContext from "../hooks/TempDataContext";
 
 const UploadWidget = () => {
     const cloudinaryRef = useRef();
     const widgetRef =  useRef();
-    // const [uploadedFiles, setUploadedFiles] = useState([]);
     const { setTempFileData } = useContext(TempDataContext);
     useEffect(() => {
         cloudinaryRef.current = window.cloudinary;
@@ -15,16 +14,12 @@ const UploadWidget = () => {
             if (!error && result && result.event === "success") {
                 console.log('File uploaded:', result.info); 
                 setTempFileData(prev => [...prev,result.info]);
-                // console.log(tempFileData);
-
-                // Add the uploaded file to the state
-                // setUploadedFiles(prevFiles => [...prevFiles, result.info]);
             }
         })
     },[setTempFileData])
     return (
-        <button onClick={() => widgetRef.current.open()} className="bg-blue-600 text-white rounded-md p-1.5 font-medium w-20 hover:scale-110">
-            Upload
+        <button onClick={() => widgetRef.current.open()} className="bg-zinc-400 text-white rounded-md p-1.5 font-medium hover:scale-110">
+            Upload file
         </button>
     )
 

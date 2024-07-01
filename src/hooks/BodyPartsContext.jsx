@@ -22,7 +22,6 @@ export const BodyPartsProvider = ({ children }) => {
       setBodyParts(JSON.parse(savedBodyParts));
     }
   }, []);
-  console.log(bodyParts);
 
 
   return (

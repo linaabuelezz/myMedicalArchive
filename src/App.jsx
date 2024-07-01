@@ -23,7 +23,8 @@ function App() {
       <Router>
       <Navbar />
       <Routes>
-        <Route path="/home-page" element={<HomePage />}></Route>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/home-page" element={<HomePage />} />
         <Route path="/about-page" element={<AboutPage />}></Route>
         <Route path="/add-details" element={<AddingInformationPage />}></Route>
         <Route path="/event/:eventId" element={<EventDetails />} />

@@ -5,9 +5,7 @@ const FileDetails = () => {
     const { fileId } = useParams();
     console.log(fileId);
     const [file, setFile] = useState(null);
-    const handleImage = (fileUrl) => {
-      window.open(fileUrl, '_blank');
-    }
+    
 
     useEffect(() => {
         const storedBodyParts = JSON.parse(localStorage.getItem('bodyParts'));
@@ -28,7 +26,7 @@ const FileDetails = () => {
     
       return (
         <div>
-          <h1 onClick={() => handleImage(file.secure_url)}>{file.display_name}</h1>
+          <h1>{file.display_name}</h1>
           <p>{file.newDocDescription}</p>
           <p>{file.newDocDocument}</p>
         </div>
