@@ -35,7 +35,7 @@ const AddingDateDialogue = () => {
   return (
     <Dialog.Root open={modalType === "Add-date" && isDialogueOpen}>
       <Dialog.Content maxWidth="450px">
-        <Dialog.Title>Add document</Dialog.Title>
+        <Dialog.Title>Add an Event</Dialog.Title>
         <Dialog.Description size="2" mb="4">
           Enter a name, description and select a date for the event.
         </Dialog.Description>
