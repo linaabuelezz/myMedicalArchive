@@ -57,7 +57,7 @@ const SubmitDataButton = () => {
 
   return (
     <button
-      className="bg-zinc-400 text-white rounded-md p-1.5 ml-2 font-bold w-20 mt-4 hover:scale-110"
+      className="bg-zinc-400 text-white rounded-md p-1 ml-2 font-bold w-20 mt-2 hover:scale-110"
       onClick={() => {handleSave();
          displayToast(result);}}
     >
