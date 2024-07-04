@@ -17,7 +17,7 @@ const FilesDisplay = () => {
 
 
   return (
-    <div className="border-2 border-black w-80 h-80 rounded-md ml-2">
+    <div className="bg-white border-2 border-black w-80 h-80 rounded-md ml-2">
       <h3 className="font-bold ml-1">Relevant Files:</h3>
       <div className="border border-black mb-1"></div>
       {bodyParts[chosenBodyPart - 1].files.map(

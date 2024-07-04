@@ -20,7 +20,7 @@ const HomeSelectBodyPart = () => {
   };
 
   return (
-    <div>
+    <div className="pt-4">
       <select
         className="mb-2 border-2 border-black font-semibold ml-4 rounded-sm"
         onChange={handlePartSelect}

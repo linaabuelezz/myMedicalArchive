@@ -28,8 +28,6 @@ const AddingDateDialogue = () => {
       return;
     }   
       setTempDateData(prev => [...prev,newEvent]);
-      console.log(newEvent);
-      console.log(tempDateData);
       closeDialogue();
   };
   return (

@@ -5,7 +5,7 @@ const FilesAddedBox = () => {
   const { tempFileData } = useContext(TempDataContext);
   const boxHeight = 200 + tempFileData.length * 30;
   return (
-    <div className="border-2 border-black w-80 h-auto pl-0 mx-2 rounded-md" style={{ height: `${boxHeight}px` }}>
+    <div className="bg-white border-2 border-black w-80 h-auto pl-0 mx-2 rounded-md" style={{ height: `${boxHeight}px` }}>
       <h3 className="font-bold ml-1">Added Files:</h3>
       <div className="border border-black mb-1"></div>
       {tempFileData.map((file, index) => (

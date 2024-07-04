@@ -20,7 +20,7 @@ const DatesDisplay = () => {
         }
       };
   return (
-    <div className="border-2 border-black w-80 h-80 rounded-md ml-4">
+    <div className="bg-white border-2 border-black w-80 h-80 rounded-md ml-4">
       <h3 className="font-bold ml-1">Relevant Dates:</h3>
       <div className="border border-black mb-1"></div>
       {bodyParts[chosenBodyPart - 1].dates.map(

@@ -6,7 +6,7 @@ import DatesDisplay from "../components/homepage-components/DatesDisplay";
 const HomePage = () => {
   return (
     <>
-      <div className="min-h-screen bg-[url('/assets/medbackground2.jpeg')] bg-cover bg-center">
+      <div className=" bg-fixed h-screen bg-[url('/assets/medbackground2.jpeg')] bg-cover bg-center overflow-hidden">
         <HomePageProvider>
           <HomeSelectBodyPart />
           <div className="flex m-2">
