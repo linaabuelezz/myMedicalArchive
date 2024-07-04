@@ -11,9 +11,9 @@ const FilesDisplay = () => {
     const handleImage = (fileUrl) => {
       window.open(fileUrl, '_blank');
     }
-    if (!bodyParts || !chosenBodyPart || !bodyParts[chosenBodyPart]) {
-        return <p>No files available</p>;
-    }
+    // if (!bodyParts || !chosenBodyPart || !bodyParts[chosenBodyPart]) {
+    //     return <p>No files available</p>;
+    // }
 
 
   return (

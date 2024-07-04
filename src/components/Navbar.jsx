@@ -8,7 +8,7 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
     return (
-        <nav className="bg-slate-400 py-1 shadow-lg mb-2">
+        <nav className="bg-slate-400 py-1 shadow-lg sticky top-0">
             <div className="container m-auto flex justify-between items-center">
             <a href="/" className="flex">
           <img

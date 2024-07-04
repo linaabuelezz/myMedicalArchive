@@ -22,7 +22,7 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-[url('/assets/medbackground2.jpeg')] bg-cover bg-center">
       <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
         <Slides title={slides[currentSlide].title} content={slides[currentSlide].content} />
         <div className="flex justify-between mt-4">

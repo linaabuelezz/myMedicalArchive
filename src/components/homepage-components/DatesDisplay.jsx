@@ -8,9 +8,9 @@ const DatesDisplay = () => {
     const {chosenBodyPart} = useContext(HomePageContext);
     console.log(chosenBodyPart);
     console.log(bodyParts);
-    if (!bodyParts || !chosenBodyPart || !bodyParts[chosenBodyPart]) {
-        return <p>No files available</p>;
-    }
+    // if (!bodyParts || !chosenBodyPart || !bodyParts[chosenBodyPart]) {
+    //     return <p>No files available</p>;
+    // }
 
     const handleDateClick = (date) => {
     

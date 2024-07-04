@@ -11,17 +11,19 @@ import SelectBodyPart from "../components/bodypart-components/SelectBodyPart";
 const AddingInformationPage = () => {
   return (
     <>
-      <SelectBodyPart />
-      <div className="ml-4 mb-2">
-      <UploadWidget/> <br />
+      <div className="min-h-screen bg-[url('/assets/medbackground2.jpeg')] bg-cover bg-center overflow-hidden bg-fixed">
+        <SelectBodyPart />
+        <div className="ml-4 mb-2">
+          <UploadWidget /> <br />
+        </div>
+        <AddingDateButton />
+        <AddingDateDialogue />
+        <div className="flex m-2">
+          <FilesAddedBox />
+          <DatesAddedBox />
+        </div>
+        <SubmitDataButton />
       </div>
-      <AddingDateButton />
-      <AddingDateDialogue />
-      <div className="flex m-2">
-      <FilesAddedBox />
-      <DatesAddedBox />
-      </div>
-      <SubmitDataButton />
     </>
   );
 };
