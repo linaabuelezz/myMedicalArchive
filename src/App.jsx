@@ -19,8 +19,6 @@ import SignupPage from "./pages/SignupPage";
 import ConditionalNavbar from "./components/ConditionalNavbar";
 
 function App() {
-  // const location = useLocation();
-  // const shouldShowNavbar = location.pathname !== '/login' && location.pathname !== '/signup';
   return (
     <BodyPartsProvider>
       <HomePageProvider>
@@ -28,19 +26,14 @@ function App() {
           <OpeningDialogueProvider>
             <Router>
               <ConditionalNavbar />
-              {/* {shouldShowNavbar && <Navbar />} */}
-              {/* <Navbar /> */}
               <Routes>
                 <Route path="/" element={<Navigate to="/login" replace />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
-                <Route path="/" element={<HomePage />} />
+                {/* <Route path="/" element={<HomePage />} /> */}
                 <Route path="/home-page" element={<HomePage />} />
                 <Route path="/about-page" element={<AboutPage />}></Route>
-                <Route
-                  path="/add-info"
-                  element={<AddingInformationPage />}
-                ></Route>
+                <Route path="/add-info" element={<AddingInformationPage />}></Route>
                 <Route path="/event/:eventId" element={<EventDetails />} />
                 <Route path="/file/:fileId" element={<FileDetails />} />
               </Routes>
