@@ -4,10 +4,12 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 
+
 const LoginPage = () => {
   const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate('');
+    const [error, setError] = useState(null); 
 
     const logIn = (e) => {
         e.preventDefault();
@@ -21,6 +23,7 @@ const LoginPage = () => {
             const errorMessage = error.message;
             console.log(errorCode);
             console.log(errorMessage);
+            setError(errorCode);
         })
     }
   return (
@@ -50,6 +53,11 @@ const LoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {error && (
+            <div className="text-red-600 text-sm">
+              {error}
+            </div>
+          )}
           <button
             type="submit"
             className="w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
