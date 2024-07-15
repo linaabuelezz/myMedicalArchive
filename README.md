@@ -19,7 +19,7 @@ Select a body part then view all relevant documents/dates. After clicking on a d
 - **Frontend:**
   React, React-Router, Tailwind CSS
 - **Backend:**
-  Firebase
+  Firebase, Cloudinary
 - **Database:**
   N/A
 - **Hosting:**
