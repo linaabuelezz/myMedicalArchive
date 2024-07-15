@@ -1,5 +1,5 @@
 import "./App.css";
-import AddingInformationPage from "./pages/AddingInformationPage";
+import AddingInformationPage from "./pages/AddingInformation";
 import { OpeningDialogueProvider } from "./hooks/OpeningDialogues";
 import { BodyPartsProvider } from "./hooks/BodyPartsContext";
 import { TempDataProvider } from "./hooks/TempDataContext";
