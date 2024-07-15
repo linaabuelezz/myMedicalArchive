@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import { Dialog, Button, Flex, TextField, Text } from "@radix-ui/themes";
-import { OpeningDialogueContext } from "../../hooks/openingDialogue";
+import { OpeningDialogueContext } from "../../hooks/OpeningDialogues";
 import { TempDataContext } from "../../hooks/TempDataContext";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const AddingDateDialogue = () => {
   const { isDialogueOpen, closeDialogue, modalType } = useContext(
@@ -16,19 +16,22 @@ const AddingDateDialogue = () => {
       newEventName: e.target.eventName.value,
       newEventDescription: e.target.eventDescription.value,
       newEventDate: e.target.eventDate.value,
-      newEventId: uuidv4()
+      newEventId: uuidv4(),
     };
     const newErrors = {};
-    if (!newEvent.newEventName) newErrors.newEventName = "Event name is required.";
-    if (!newEvent.newEventDescription) newErrors.newEventDescription = "Event description is required.";
-    if (!newEvent.newEventDate) newErrors.newEventDate = "Event date is required.";
+    if (!newEvent.newEventName)
+      newErrors.newEventName = "Event name is required.";
+    if (!newEvent.newEventDescription)
+      newErrors.newEventDescription = "Event description is required.";
+    if (!newEvent.newEventDate)
+      newErrors.newEventDate = "Event date is required.";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
-    }   
-      setTempDateData(prev => [...prev,newEvent]);
-      closeDialogue();
+    }
+    setTempDateData((prev) => [...prev, newEvent]);
+    closeDialogue();
   };
   return (
     <Dialog.Root open={modalType === "Add-date" && isDialogueOpen}>
