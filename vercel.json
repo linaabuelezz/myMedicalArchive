@@ -1,9 +1,26 @@
 {
-    "rewrites": [
-      {
-        "source": "/event/:id",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "rewrites": [
+    {
+      "source": "/signup",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/home-page",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/event/:id",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+
   
