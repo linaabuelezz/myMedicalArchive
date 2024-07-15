@@ -2,25 +2,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-    return (
-        <nav className="bg-slate-400 py-1 shadow-lg sticky top-0">
-            <div className="container m-auto flex justify-between items-center">
-            <a href="/" className="flex">
-          <img
-            src="/assets/logo.png"
-            alt="logo"
-            className="h-10 w-auto "
-          ></img>
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+  return (
+    <nav className="bg-slate-400 py-1 shadow-lg sticky top-0">
+      <div className="container m-auto flex justify-between items-center">
+        <a href="/" className="flex">
+          <img src="/assets/logo.png" alt="logo" className="h-10 w-auto "></img>
         </a>
-        <button
-          className="text-white md:hidden"
-          onClick={toggleMenu}
-        >
+        <button className="text-white md:hidden" onClick={toggleMenu}>
           ☰
         </button>
         <ul
@@ -29,17 +22,26 @@ const Navbar = () => {
           } md:flex space-x-10 font-semibold`}
         >
           <li>
-            <Link to="/home-page" className="text-white hover:text-gray-300 mr-4">
+            <Link
+              to="/home-page"
+              className="text-white hover:text-gray-300 mr-4"
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about-page" className="text-white hover:text-gray-300 mr-4">
+            <Link
+              to="/about-page"
+              className="text-white hover:text-gray-300 mr-4"
+            >
               About
             </Link>
           </li>
           <li>
-            <Link to="/add-details" className="text-white hover:text-gray-300 mr-4">
+            <Link
+              to="/add-info"
+              className="text-white hover:text-gray-300 mr-4"
+            >
               Add
             </Link>
           </li>
@@ -48,11 +50,10 @@ const Navbar = () => {
               Log out
             </Link>
           </li>
-         
         </ul>
-            </div>
-        </nav>
-    )
-}
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;

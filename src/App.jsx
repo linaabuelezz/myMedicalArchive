@@ -1,5 +1,5 @@
 import "./App.css";
-import AddingInformationPage from "./pages/AddingInformation";
+import AddingInformationPage from "./pages/AddingInformationPage";
 import { OpeningDialogueProvider } from "./hooks/OpeningDialogues";
 import { BodyPartsProvider } from "./hooks/BodyPartsContext";
 import { TempDataProvider } from "./hooks/TempDataContext";
@@ -38,7 +38,7 @@ function App() {
                 <Route path="/home-page" element={<HomePage />} />
                 <Route path="/about-page" element={<AboutPage />}></Route>
                 <Route
-                  path="/add-details"
+                  path="/add-info"
                   element={<AddingInformationPage />}
                 ></Route>
                 <Route path="/event/:eventId" element={<EventDetails />} />
