@@ -43,6 +43,11 @@ const Navbar = () => {
               Add
             </Link>
           </li>
+          <li>
+            <Link to="/login" className="text-white hover:text-gray-300 mr-4">
+              Log out
+            </Link>
+          </li>
          
         </ul>
             </div>
