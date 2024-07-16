@@ -11,6 +11,21 @@ const LoginPage = () => {
     const navigate = useNavigate('');
     const [error, setError] = useState(null); 
 
+    const getErrorMessage = (errorCode) => {
+      switch (errorCode) {
+          case 'auth/invalid-email':
+              return 'The email address is not valid.';
+          case 'auth/user-disabled':
+              return 'The user corresponding to the given email has been disabled.';
+          case 'auth/user-not-found':
+              return 'There is no user corresponding to the given email.';
+          case 'auth/wrong-password':
+              return 'The password is invalid for the given email.';
+          default:
+              return 'An unexpected error occurred. Please try again.';
+      }
+  };
+
     const logIn = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
@@ -20,10 +35,10 @@ const LoginPage = () => {
             navigate('/home-page')
         }).catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
+            const errorMessage = getErrorMessage(errorCode);
             console.log(errorCode);
             console.log(errorMessage);
-            setError(errorCode);
+            setError(errorMessage);
         })
     }
   return (
