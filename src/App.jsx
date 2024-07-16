@@ -17,31 +17,34 @@ import FileDetails from "./components/homepage-components/FileDetails";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ConditionalNavbar from "./components/ConditionalNavbar";
+import ProtectedRoute from "./firebase/ProtectedRoute";
+import { AuthProvider } from "./hooks/AuthContext";
 
 function App() {
   return (
-    <BodyPartsProvider>
-      <HomePageProvider>
-        <TempDataProvider>
-          <OpeningDialogueProvider>
-            <Router>
-              <ConditionalNavbar />
-              <Routes>
-                <Route path="/" element={<Navigate to="/login" replace />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/signup" element={<SignupPage />} />
-                {/* <Route path="/" element={<HomePage />} /> */}
-                <Route path="/home-page" element={<HomePage />} />
-                <Route path="/about-page" element={<AboutPage />}></Route>
-                <Route path="/add-info" element={<AddingInformationPage />}></Route>
-                <Route path="/event/:eventId" element={<EventDetails />} />
-                <Route path="/file/:fileId" element={<FileDetails />} />
-              </Routes>
-            </Router>
-          </OpeningDialogueProvider>
-        </TempDataProvider>
-      </HomePageProvider>
-    </BodyPartsProvider>
+    <AuthProvider>
+      <BodyPartsProvider>
+        <HomePageProvider>
+          <TempDataProvider>
+            <OpeningDialogueProvider>
+              <Router>
+                <ConditionalNavbar />
+                <Routes>
+                  <Route path="/" element={<Navigate to="/login" replace />} />
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/signup" element={<SignupPage />} />
+                  <Route path="/home-page" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+          <Route path="/about-page" element={<ProtectedRoute><AboutPage /></ProtectedRoute>} />
+          <Route path="/add-info" element={<ProtectedRoute><AddingInformationPage /></ProtectedRoute>} />
+                  <Route path="/event/:eventId" element={<EventDetails />} />
+                  <Route path="/file/:fileId" element={<FileDetails />} />
+                </Routes>
+              </Router>
+            </OpeningDialogueProvider>
+          </TempDataProvider>
+        </HomePageProvider>
+      </BodyPartsProvider>
+    </AuthProvider>
   );
 }
 
