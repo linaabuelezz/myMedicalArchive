@@ -11,6 +11,21 @@ const SignupPage = () => {
     const navigate = useNavigate('');
     const [error, setError] = useState(null); 
 
+    const getErrorMessage = (errorCode) => {
+      switch (errorCode) {
+          case 'auth/email-already-in-use':
+              return 'The email address is already in use by another account.';
+          case 'auth/invalid-email':
+              return 'The email address is not valid.';
+          case 'auth/operation-not-allowed':
+              return 'Email/password accounts are not enabled.';
+          case 'auth/weak-password':
+              return 'The password is too weak.';
+          default:
+              return 'An unexpected error occurred. Please try again.';
+      }
+  };
+
     const signUp = (e) => {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
@@ -20,10 +35,10 @@ const SignupPage = () => {
             navigate('/home-page');
         }).catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
+            const errorMessage = getErrorMessage(errorCode);
             console.log(errorCode);
             console.log(errorMessage);
-            setError(errorCode);
+            setError(errorMessage);
         })
     }
   return (
