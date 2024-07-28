@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../firebase/Firebase";
+import { auth } from "../../firebase/Firebase";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="bg-slate-400 py-1 shadow-lg sticky top-0">
       <div className="container m-auto flex justify-between items-center">
-        <a href="/" className="flex">
+        <a href="/home-page" className="flex">
           <img src="/assets/logo.png" alt="logo" className="h-10 w-auto" />
         </a>
         <button className="text-white md:hidden" onClick={toggleMenu}>

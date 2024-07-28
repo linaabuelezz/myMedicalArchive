@@ -16,7 +16,7 @@ import EventDetails from "./components/homepage-components/EventDetails";
 import FileDetails from "./components/homepage-components/FileDetails";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
-import ConditionalNavbar from "./components/ConditionalNavbar";
+import ConditionalNavbar from "./components/navbar/ConditionalNavbar";
 import ProtectedRoute from "./firebase/ProtectedRoute";
 import { AuthProvider } from "./hooks/AuthContext";
 

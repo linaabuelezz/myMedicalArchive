@@ -21,24 +21,39 @@ const AboutPage = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  const goToStart = () => {
+    setCurrentSlide(0);
+  };
+
   return (
     <div className="bg-fixed min-h-screen bg-[url('/assets/medbackground2.jpeg')] bg-cover bg-center overflow-hidden bg-no-repeat">
       <div className="flex justify-center items-start mt-20">
         <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
           <Slides title={slides[currentSlide].title} content={slides[currentSlide].content} />
           <div className="flex justify-between mt-4">
-            <button
-              onClick={previousSlide}
-              className="bg-zinc-400 text-white py-2 px-4 rounded hover:bg-blue-600"
-            >
-              Previous
-            </button>
-            <button
-              onClick={nextSlide}
-              className="bg-zinc-400 text-white py-2 px-4 rounded hover:bg-blue-600"
-            >
-              Next
-            </button>
+            {currentSlide > 0 && (
+              <button
+                onClick={previousSlide}
+                className="bg-zinc-400 text-white py-2 px-4 rounded hover:bg-blue-600"
+              >
+                Previous
+              </button>
+            )}
+            {currentSlide < slides.length - 1 ? (
+              <button
+                onClick={nextSlide}
+                className="bg-zinc-400 text-white py-2 px-4 rounded hover:bg-blue-600 ml-auto"
+              >
+                Next
+              </button>
+            ) : (
+              <button
+                onClick={goToStart}
+                className="bg-zinc-400 text-white py-2 px-4 rounded hover:bg-blue-600 ml-auto"
+              >
+                Go Back to Start
+              </button>
+            )}
           </div>
         </div>
       </div>
