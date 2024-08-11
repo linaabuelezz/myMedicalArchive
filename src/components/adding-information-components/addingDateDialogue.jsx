@@ -33,6 +33,7 @@ const AddingDateDialogue = () => {
     setTempDateData((prev) => [...prev, newEvent]);
     closeDialogue();
   };
+  
   return (
     <Dialog.Root open={modalType === "Add-date" && isDialogueOpen}>
       <Dialog.Content maxWidth="450px">

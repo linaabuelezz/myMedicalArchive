@@ -23,37 +23,40 @@ const Navbar = () => {
 
   return (
     <nav className="bg-slate-400 py-1 shadow-lg sticky top-0">
-      <div className="container m-auto flex justify-between items-center">
-        <a href="/home-page" className="flex">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <a href="/home-page" className="flex items-center">
           <img src="/assets/logo.png" alt="logo" className="h-10 w-auto" />
         </a>
         <button className="text-white md:hidden" onClick={toggleMenu}>
           ☰
         </button>
         <ul
-          className={`flex space-x-6 ${
-            isOpen ? "block" : "hidden"
-          } md:flex space-x-10 font-semibold`}
+          className={`flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 font-semibold items-center ${
+            isOpen ? "flex" : "hidden"
+          } md:flex`}
         >
           <li>
-            <Link to="/home-page" className="text-white hover:text-gray-300 mr-4">
+            <Link to="/home-page" className="text-white hover:text-gray-300">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about-page" className="text-white hover:text-gray-300 mr-4">
+            <Link to="/about-page" className="text-white hover:text-gray-300">
               About
             </Link>
           </li>
           <li>
-            <Link to="/add-info" className="text-white hover:text-gray-300 mr-4">
+            <Link to="/add-info" className="text-white hover:text-gray-300">
               Add
             </Link>
           </li>
           <li>
-            <Link to="/login" onClick={handleLogout} className="text-white hover:text-gray-300 mr-4">
+            <button
+              onClick={handleLogout}
+              className="bg-gradient-to-r from-blue-500 to-blue-950 text-white font-bold py-1 px-2 rounded-md shadow-lg transform transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
               Log out
-            </Link>
+            </button>
           </li>
         </ul>
       </div>

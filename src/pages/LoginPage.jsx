@@ -1,48 +1,47 @@
 import { useState } from "react";
-import { auth, app } from "../firebase/Firebase"
+import { auth, app } from "../firebase/Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-
-
 const LoginPage = () => {
   const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const navigate = useNavigate('');
-    const [error, setError] = useState(null); 
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate('');
+  const [error, setError] = useState(null);
 
-    const getErrorMessage = (errorCode) => {
-      switch (errorCode) {
-          case 'auth/invalid-email':
-              return 'The email address is not valid.';
-          case 'auth/user-disabled':
-              return 'The user corresponding to the given email has been disabled.';
-          case 'auth/user-not-found':
-              return 'There is no user corresponding to the given email.';
-          case 'auth/wrong-password':
-              return 'The password is invalid for the given email.';
-          default:
-              return 'An unexpected error occurred. Please try again.';
-      }
+  const getErrorMessage = (errorCode) => {
+    switch (errorCode) {
+      case 'auth/invalid-email':
+        return 'The email address is not valid.';
+      case 'auth/user-disabled':
+        return 'The user corresponding to the given email has been disabled.';
+      case 'auth/user-not-found':
+        return 'There is no user corresponding to the given email.';
+      case 'auth/wrong-password':
+        return 'The password is invalid for the given email.';
+      default:
+        return 'An unexpected error occurred. Please try again.';
+    }
   };
 
-    const logIn = (e) => {
-        e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user);
-            navigate('/home-page')
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = getErrorMessage(errorCode);
-            console.log(errorCode);
-            console.log(errorMessage);
-            setError(errorMessage);
-        })
-    }
+  const logIn = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        navigate('/home-page');
+      }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = getErrorMessage(errorCode);
+        console.log(errorCode);
+        console.log(errorMessage);
+        setError(errorMessage);
+      });
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded shadow-lg">
         <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
         <form className="space-y-4" onSubmit={logIn}>
@@ -81,7 +80,7 @@ const LoginPage = () => {
           </button>
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
-          Dont have an account?{' '}
+          Don&apos;t have an account?{' '}
           <a href="/signup" className="font-medium text-indigo-600 hover:underline">
             Sign Up
           </a>

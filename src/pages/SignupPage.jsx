@@ -42,13 +42,13 @@ const SignupPage = () => {
         })
     }
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded shadow-lg">
         <h2 className="text-2xl font-bold text-center text-gray-800">
           Sign Up
         </h2>
         <form className="space-y-4" onSubmit={signUp}>
-          <div className="flex space-x-4">
+          <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
             <div className="flex-1">
               <label
                 className="block text-sm font-medium text-gray-600"

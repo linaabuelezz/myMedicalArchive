@@ -26,8 +26,8 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="bg-fixed min-h-screen bg-[url('/assets/medbackground2.jpeg')] bg-cover bg-center overflow-hidden bg-no-repeat">
-      <div className="flex justify-center items-start mt-20">
+    <div className="bg-fixed min-h-screen bg-[url('/assets/medbackground2.jpeg')] bg-cover bg-center overflow-auto bg-no-repeat">
+      <div className="flex justify-center items-start mt-20 px-4">
         <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
           <Slides title={slides[currentSlide].title} content={slides[currentSlide].content} />
           <div className="flex justify-between mt-4">
