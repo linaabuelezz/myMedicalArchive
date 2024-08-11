@@ -21,6 +21,6 @@ Select a body part then view all relevant documents/dates. After clicking on a d
 - **Backend:**
   Firebase, Cloudinary
 - **Database:**
-  N/A
+  Firebase, Cloudinary
 - **Hosting:**
   Vercel
